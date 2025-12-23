@@ -4,17 +4,17 @@ import { useState } from 'react';
 import InputForm from './components/InputForm';
 import TabScreen from './components/TabScreen';
 import ToastMessage from './components/ToastMessage';
-import { PlayData } from './types/formTypes';
+import { PlayCondition, PlayData } from './types/formTypes';
 import { AlertSeverity, AlertState, AlertTitleValue } from './types/toastTypes';
 import ResultTable from './components/ResultTable';
 import { TabDataType } from './types/tabTypes';
-import { time } from 'console';
 
 type ResultType = {
+  condition: PlayCondition;
   res: boolean;
   message: string;
   roll: number;
-  threshold: number;
+  guess: number;
 };
 
 function DiceGame() {
@@ -30,18 +30,20 @@ function DiceGame() {
     const diceCheck = {
       Under: (roll: number, threshold: number): ResultType => {
         return {
+          condition: PlayCondition.under,
           res: roll < threshold,
           message: `Number was ${roll === threshold ? 'equal' : 'higher'}`,
           roll,
-          threshold,
+          guess: threshold,
         };
       },
       Over: (roll: number, threshold: number) => {
         return {
+          condition: PlayCondition.over,
           res: roll > threshold,
           message: `Number was ${roll === threshold ? 'equal' : 'lower'}`,
           roll,
-          threshold,
+          guess: threshold,
         };
       },
     };
@@ -79,10 +81,17 @@ function DiceGame() {
     setResult(null);
     setShomessage(true);
 
-    //setTabResult(...prev, {
-    //  time: Date.now().toLocaleString(),
-    //  gues:
-    //})
+    setTabResult(prev =>
+      [
+        {
+          time: new Date().toLocaleTimeString(),
+          gues: `${result.condition} ${result.guess}`,
+          result: result.roll,
+          isWon: result.res,
+        },
+        ...prev,
+      ].slice(0, 10)
+    );
   };
 
   return (

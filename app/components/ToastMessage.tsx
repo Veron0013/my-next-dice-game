@@ -29,7 +29,7 @@ export default function ToastMessage({
       <Alert
         severity={severity}
         variant="filled"
-        sx={{ width: 400 }}
+        sx={{ width: 600 }}
         onClose={onClose}
       >
         <AlertTitle>{titleText}</AlertTitle>
