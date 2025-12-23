@@ -10,22 +10,6 @@ import {
 import { TAB_HEADER } from '../lib/vars';
 import { TabDataType } from '../types/tabTypes';
 
-function createData(
-  time: string,
-  gues: string,
-  result: number,
-  isWon: boolean
-) {
-  return { time, gues, result, isWon };
-}
-
-const dataArrayd = [
-  createData('11:46:32', 'Over 13', 100, true),
-  createData('11:46:33', 'Over 13', 75, false),
-  createData('11:46:34', 'Over 13', 44, true),
-  createData('11:46:35', 'Over 13', 24, true),
-];
-
 interface TabProps {
   dataArray: TabDataType[];
 }
@@ -45,7 +29,8 @@ function TableHeader() {
 }
 
 export default function ResultTable({ dataArray }: TabProps) {
-  if (!dataArray) return;
+  if (!dataArray.length) return;
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
@@ -54,7 +39,7 @@ export default function ResultTable({ dataArray }: TabProps) {
           {dataArray.map(row => (
             <TableRow
               style={{ minWidth: 56 }}
-              key={row.time}
+              key={row.key}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <TableCell align="left" style={{ minWidth: 56 }}>

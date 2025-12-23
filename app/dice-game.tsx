@@ -84,7 +84,12 @@ function DiceGame() {
     setTabResult(prev =>
       [
         {
-          time: new Date().toLocaleTimeString(),
+          key: Date.now(),
+          time: new Date().toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+          }),
           gues: `${result.condition} ${result.guess}`,
           result: result.roll,
           isWon: result.res,
