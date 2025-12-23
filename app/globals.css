@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: rgba(0, 0, 0, 0.87);
+
+  --screen-bg: rgba(0, 0, 0, 0.04);
+  --main-purple: #9c27b0;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-weight: 400;
+  font-size: 16px;
+}
