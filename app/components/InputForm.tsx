@@ -10,20 +10,6 @@ import { purple } from '@mui/material/colors';
 import React from 'react';
 
 export default function InputForm() {
-  const [selectedValue, setSelectedValue] = React.useState('a');
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSelectedValue(event.target.value);
-  };
-
-  const controlProps = (item: string) => ({
-    checked: selectedValue === item,
-    onChange: handleChange,
-    value: item,
-    name: 'color-radio-button-demo',
-    inputProps: { 'aria-label': item },
-  });
-
   return (
     <div>
       <form>
