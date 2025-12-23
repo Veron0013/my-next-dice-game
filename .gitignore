@@ -10,6 +10,9 @@
 !.yarn/releases
 !.yarn/versions
 
+*.py
+dice.txt
+
 # testing
 /coverage
 

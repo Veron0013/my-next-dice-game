@@ -4,6 +4,6 @@ export type PlayData = {
 };
 
 export enum PlayCondition {
-  under = 'under',
-  over = 'over',
+  under = 'Under',
+  over = 'Over',
 }

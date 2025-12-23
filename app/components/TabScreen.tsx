@@ -15,13 +15,13 @@ export default function TabScreen({ finalRoll, onFinish }: Props) {
     if (finalRoll === null) return;
 
     let ticks = 0;
-    const maxTicks = 15;
+    const maxTicks = 20;
 
     const interval = setInterval(() => {
       setDisplay(Math.floor(Math.random() * 100) + 1);
       ticks++;
 
-      if (ticks >= maxTicks - 1) {
+      if (ticks >= maxTicks - 2) {
         setDisplay(finalRoll);
       }
       if (ticks >= maxTicks) {
@@ -33,6 +33,8 @@ export default function TabScreen({ finalRoll, onFinish }: Props) {
     return () => {
       clearInterval(interval);
     };
+    //no need to render on onFinish
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [finalRoll]);
 
   return (

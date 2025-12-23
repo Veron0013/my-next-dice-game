@@ -23,3 +23,5 @@ export const MARKS = [
     label: '100',
   },
 ];
+
+export const TAB_HEADER = ['Time', 'Guess', 'Result'];

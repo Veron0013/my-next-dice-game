@@ -1,25 +1,40 @@
-import { Alert, AlertTitle } from '@mui/material';
+import { Alert, AlertTitle, Snackbar } from '@mui/material';
 import { AlertSeverity, AlertTitleValue } from '../types/toastTypes';
 
 interface Props {
+  open: boolean;
+  onClose: () => void;
   severity: AlertSeverity;
   titleText: AlertTitleValue;
   message?: string;
 }
 
-export default function ToastMessage({ message, severity, titleText }: Props) {
+export default function ToastMessage({
+  open,
+  onClose,
+  severity,
+  titleText,
+  message,
+}: Props) {
   return (
-    <Alert
-      severity={severity}
-      variant="filled"
-      sx={{
-        borderRadius: '4px',
-        width: '600px',
-        fontSize: '16px',
+    <Snackbar
+      open={open}
+      autoHideDuration={5000}
+      onClose={onClose}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'center',
       }}
     >
-      <AlertTitle>{titleText}</AlertTitle>
-      {message}
-    </Alert>
+      <Alert
+        severity={severity}
+        variant="filled"
+        sx={{ width: 600 }}
+        onClose={onClose}
+      >
+        <AlertTitle>{titleText}</AlertTitle>
+        {message}
+      </Alert>
+    </Snackbar>
   );
 }
