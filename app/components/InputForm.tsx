@@ -40,11 +40,11 @@ export default function InputForm({ onPlay }: Props) {
             row
             aria-labelledby="demo-form-control-label-placement"
             name="position"
-            defaultValue="under"
+            defaultValue={PlayCondition.under}
             onChange={e => setCondition(e.target.value as PlayCondition)}
           >
             <FormControlLabel
-              value="under"
+              value={PlayCondition.under}
               control={
                 <Radio
                   sx={{
@@ -57,11 +57,11 @@ export default function InputForm({ onPlay }: Props) {
                   }}
                 />
               }
-              label="Under"
+              label={PlayCondition.under}
               labelPlacement="start"
             />
             <FormControlLabel
-              value="over"
+              value={PlayCondition.over}
               control={
                 <Radio
                   sx={{
@@ -74,7 +74,7 @@ export default function InputForm({ onPlay }: Props) {
                   }}
                 />
               }
-              label="Over"
+              label={PlayCondition.over}
               labelPlacement="start"
             />
           </RadioGroup>
