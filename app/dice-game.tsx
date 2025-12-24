@@ -100,7 +100,7 @@ function DiceGame() {
   };
 
   return (
-    <div className="py-10 w-150 flex flex-1 flex-col justify-center items-center mx-auto mt-20 gap-4">
+    <div className="p-5 max-w-150 w-[clamp(360px,70%,600px)] flex flex-1 flex-col justify-center items-center mx-auto mt-20 gap-5">
       {showMessage && alertState && (
         <ToastMessage
           {...alertState}
