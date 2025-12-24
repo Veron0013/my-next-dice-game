@@ -37,9 +37,10 @@ export default function InputForm({ onPlay }: Props) {
       <form className="flex flex-col items-center justify-center">
         <FormControl>
           <RadioGroup
-            row
             aria-labelledby="demo-form-control-label-placement"
             name="position"
+            row
+            sx={{ gap: 4 }}
             defaultValue={PlayCondition.under}
             onChange={e => setCondition(e.target.value as PlayCondition)}
           >
